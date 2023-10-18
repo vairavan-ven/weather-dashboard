@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main class="container mt-4">
+        <section class="search">
+            <form id="search-form" class="mb-4">
+                <div class="input-group">
+                    <input type="text" id="city-input" class="form-control" placeholder="Enter city name">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="current-weather">
+            <h2 class="mb-3">Current Weather</h2>
+            <div id="current-weather-data">
+                <!-- Display current weather data here -->
+            </div>
+        </section>
+        <section class="forecast">
+            <h2 class="mt-4 mb-3">5-Day Forecast</h2>
+            <div id="forecast-data">
+                <!-- Display forecast data here -->
+            </div>
+        </section>
+    </main>
+    <section class="search-history bg-light p-3">
+        <h2>Search History</h2>
+        <ul id="search-history-list">
+            <!-- Display search history here -->
+        </ul>
+    </section>
+    <!-- Add Bootstrap JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
