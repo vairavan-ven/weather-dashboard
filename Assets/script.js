@@ -79,6 +79,9 @@ async function getWeatherForecast(latitude, longitude) {
 
         const forecastList = forecastDataResponse.list;
 
+        const forecastContainer = document.createElement('div');
+        forecastContainer.classList.add('forecast-container');
+        
         for (let i = 0; i < forecastList.length; i += 8) {
             const forecastItem = forecastList[i];
             const forecastDate = new Date(forecastItem.dt * 1000).toLocaleDateString();
@@ -97,8 +100,10 @@ async function getWeatherForecast(latitude, longitude) {
                 <p>Humidity: ${forecastHumidity}%</p>
             `;
 
-            forecastData.appendChild(forecastCard);
+            forecastContainer.appendChild(forecastCard);
         }
+
+        forecastData.appendChild(forecastContainer);
     } catch (error) {
         console.error(error);
         forecastData.innerHTML = 'Forecast data not available';
