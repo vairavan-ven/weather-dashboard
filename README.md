@@ -16,3 +16,4 @@ When I examine the future weather conditions for a city,
 Then I should find a 5-day forecast that includes the date, an icon symbolizing the weather conditions, temperature, wind speed, and humidity.
 When I click on a city within the search history,
 Then I should once again be shown both current and future weather conditions for that city, facilitating the creation of a GitHub readme.
+<img width="1701" alt="Screenshot 2023-10-19 at 8 31 44 pm" src="https://github.com/vairavan-ven/weather-dashboard/assets/138781674/56266385-229a-4711-afc7-7602882a0f87">
