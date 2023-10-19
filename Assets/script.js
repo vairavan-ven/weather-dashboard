@@ -29,16 +29,16 @@ async function getWeatherData(city) {
 
         const data = await response.json();
 
-        // Display current weather data
+        // Display current weather data with today's date
         const cityName = data.name;
-        const date = new Date(data.dt * 1000).toLocaleDateString();
+        const today = new Date().toLocaleDateString(); // Get the current date
         const icon = data.weather[0].icon;
         const temperature = data.main.temp;
         const humidity = data.main.humidity;
         const windSpeed = data.wind.speed;
 
         currentWeatherData.innerHTML = `
-            <h2>${cityName} (${date})</h2>
+            <h2>${cityName} (${today})</h2>
             <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather Icon">
             <p>Temperature: ${temperature}°C</p>
             <p>Humidity: ${humidity}%</p>
