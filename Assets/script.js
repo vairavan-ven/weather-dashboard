@@ -81,7 +81,7 @@ async function getWeatherForecast(latitude, longitude) {
 
         const forecastContainer = document.createElement('div');
         forecastContainer.classList.add('forecast-container');
-        
+
         for (let i = 0; i < forecastList.length; i += 8) {
             const forecastItem = forecastList[i];
             const forecastDate = new Date(forecastItem.dt * 1000).toLocaleDateString();
@@ -124,4 +124,51 @@ function renderSearchHistory() {
         });
         searchHistoryList.appendChild(historyItem);
     });
+    // Limit search history to 5 most recent searches
+    if (searchHistoryData.length > 5) {
+        const excess = searchHistoryData.length - 5;
+        searchHistoryData.splice(0, excess);
+        localStorage.setItem(localStorageKey, JSON.stringify(searchHistoryData));
+    }
+}
+
+
+
+// Function to load the search history from local storage
+function loadSearchHistoryFromLocalStorage() {
+    const historyData = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+
+    searchHistoryList.innerHTML = ''; // Clear the search history list
+
+    historyData.forEach(function (city) {
+        addToSearchHistory(city);
+    });
+
+    // Show the search history by default
+    searchHistoryList.style.display = 'block';
+}
+
+// Load search history from local storage when the page loads
+loadSearchHistoryFromLocalStorage();
+
+// Function to add a search to the search history
+function addToSearchHistory(city) {
+    const existingHistory = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    
+    // Remove the oldest entry if the history exceeds 5 entries
+    if (existingHistory.length >= 5) {
+        existingHistory.shift();
+    }
+    
+    existingHistory.push(city);
+    localStorage.setItem(localStorageKey, JSON.stringify(existingHistory));
+
+    renderSearchHistory(); // Update the displayed search history
+}
+
+
+function saveToLocalStorage(data) {
+    const existingHistory = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    existingHistory.push(data);
+    localStorage.setItem(localStorageKey, JSON.stringify(existingHistory));
 }
