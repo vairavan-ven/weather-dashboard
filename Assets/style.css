@@ -1,10 +1,61 @@
+/* Add some basic styling to the search history buttons */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the forecast container and cards */
 .forecast-container {
     display: flex;
     overflow-x: auto;
+    margin-top: 20px;
 }
 
 .forecast-card {
+    flex: 0 0 auto;
+    width: 120px;
+    padding: 10px;
     margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.forecast-card p {
+    margin: 5px 0;
+}
+
+/* Style the current weather data */
+#current-weather-data {
+    background-color: #f5f5f5;
     padding: 10px;
     border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Style the form */
+#search-form {
+    margin-top: 20px;
+}
+
+#city-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#search-history-list {
+    margin-top: 20px;
 }
